@@ -1,0 +1,44 @@
+# BEAM Model Configuration
+
+# Model architecture
+model:
+  d_model: 512              # Hidden dimension
+  num_heads: 8              # Number of attention heads
+  num_layers: 3             # Number of transformer layers
+  dropout: 0.1              # Dropout rate
+  cfdna_dim: 512            # cfDNA feature dimension
+
+# Data configuration
+data:
+  mri_shape: [16, 128, 128] # Target MRI shape (D, H, W)
+  mri_channels: 3           # Number of MRI modalities (T1, T2, DWI)
+  augmentation: False       # Whether to apply data augmentation
+
+# Training configuration
+training:
+  epochs: 100               # Number of training epochs
+  batch_size: 16            # Batch size
+  learning_rate: 1e-4       # Learning rate
+  weight_decay: 1e-4        # Weight decay for regularization
+  num_workers: 4            # Number of data loading workers
+  
+  # Data split
+  test_size: 0.2            # Test set ratio
+  val_size: 0.125           # Validation set ratio from train+val
+
+# Paths
+paths:
+  data_dir: "./data"
+  labels_file: "./data/labels.csv"
+  output_dir: "./experiments"
+  
+# Reproducibility
+seed: 42
+
+# Evaluation
+evaluation:
+  threshold: 0.5            # Classification threshold
+  metrics: ["auc", "accuracy", "precision", "recall", "specificity", "f1"]
+
+# Hardware
+device: "auto"              # "auto", "cuda", or "cpu"
