@@ -1,0 +1,25 @@
+# BEAM model configuration
+
+model:
+  d_model: 512        # latent dimension
+  num_heads: 8        # MHSA heads
+  num_layers: 3       # number of Transformer encoder layers
+  dropout: 0.1
+  cfdna_dim: 275      # cfDNA feature vector length
+
+data:
+  mri_shape: [16, 128, 128]   # D, H, W
+  mri_channels: 3             # T1WI, T2WI, high-b-DWI
+
+training:
+  epochs: 100
+  batch_size: 4
+  learning_rate: 1.0e-4   # AdamW eta
+  weight_decay: 1.0e-4    # AdamW lambda
+  num_workers: 4
+
+  # 70 / 10 / 20 stratified split into train / tuning / hold-out test
+  test_size: 0.2
+  val_size: 0.125
+
+seed: 42
