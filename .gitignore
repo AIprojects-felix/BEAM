@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# PyTorch checkpoints
+*.pth
+*.pt
+
+# Data files
+*.npy
+*.csv
+
+# Smoke-test / training outputs
+output/
+output_*/
+experiments/
+results/
+logs/
+checkpoints/
+*.log
+*.json
+
+# Generated figures (smoke-test artifacts)
+*.pdf
+# Note: PNG figures under source/ ARE tracked (model framework figure);
+# *.png is intentionally NOT in this list.
+
+# Local sample data (regenerate with data/make_sample_data.py)
+data/sample/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.venv
+env/
+venv/
